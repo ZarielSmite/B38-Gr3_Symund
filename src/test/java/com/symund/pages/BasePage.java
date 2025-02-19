@@ -2,6 +2,7 @@ package com.symund.pages;
 
 
 import com.symund.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,6 +12,17 @@ public abstract class BasePage {
 
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
+    }
+
+    /**
+     * navigates to the given module page on the app
+     * @param moduleName String
+     */
+    public void navigateTo(String moduleName){
+        moduleName = moduleName.substring(0,1).toUpperCase() + moduleName.substring(1).toLowerCase();
+        String locator = "//ul[@id='appmenu']//a[@aria-label='"+moduleName+"']";
+        WebElement element = Driver.getDriver().findElement(By.xpath(locator));
+        element.click();
     }
 
 
