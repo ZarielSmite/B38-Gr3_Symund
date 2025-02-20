@@ -18,6 +18,7 @@ public class DelatedFilesDefs {
     }
 
 
+
     @When("user clicks on the select all checkbox")
     public void user_clicks_on_the_select_all_checkbox() {
         BrowserUtils.waitFor(2);
