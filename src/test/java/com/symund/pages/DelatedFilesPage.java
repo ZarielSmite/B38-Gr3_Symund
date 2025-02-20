@@ -7,6 +7,7 @@ import java.util.List;
 
 public class DelatedFilesPage extends BasePage {
 
+
     @FindBy(xpath = "//span[@class='sort-indicator icon-triangle-s']")
     public WebElement orderDelatedFiles;
 
