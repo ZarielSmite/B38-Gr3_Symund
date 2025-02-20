@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 public class FolderViewStepDefs {
 
@@ -16,9 +17,16 @@ public class FolderViewStepDefs {
         filesPage.navigateTo(moduleName);
     }
 
+    @Then("verify user should see all checkboxes as selected")
+    public void verify_use_should_see_all_checkboxes_as_selected() {
+        for (WebElement each : filesPage.allCheckBoxes) {
+            Assert.assertTrue(each.isSelected());
+        }
+    }
+
     @When("user clicks on the select all checkbox")
     public void user_clicks_on_the_select_all_checkbox() {
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(3);
         filesPage.selectAllCheckBox.click();
     }
 
