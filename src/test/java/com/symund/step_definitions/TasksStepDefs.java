@@ -12,7 +12,7 @@ public class TasksStepDefs {
     Faker faker = new Faker();
 
     @Then("the user should navigate to {string} module")
-    public void the_user_should_navigate_to_module(String string) {
+    public void the_user_should_navigate_to_module(String moduleName) {
         tasksPage.navigateTo("Tasks");
     }
 
