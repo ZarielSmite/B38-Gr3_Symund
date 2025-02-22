@@ -19,6 +19,19 @@ Feature: Users should be able to login
   Scenario: User can create a new list of tasks
     Then the user clicks to the Add List button and adds a list and names it
 
+  @B38G3-484_tasks_AC01-TC02
+
+  Scenario: User can create a new list of tasks with other colors
+    Then the user clicks to the Add List button and adds a list and names it with a the color green
+    Then the user clicks to the Add List button and adds a list and names it with a the color orange
+    Then the user clicks to the Add List button and adds a list and names it with a the color purple
+    Then the user clicks to the Add List button and adds a list and names it with a the color yellow
+    Then the user clicks to the Add List button and adds a list and names it with a the color blue
+    Then the user clicks to the Add List button and adds a list and names it with a the color gray
+    Then the user clicks to the Add List button and adds a list and names it with a the color black
+    Then the user clicks to the Add List button and adds a list and names it with a the color pink
+
+
   @B38G3-484_tasks_AC02-TC01
 
   Scenario: User can create a new task
@@ -29,12 +42,30 @@ Feature: Users should be able to login
   Scenario: User can add any task to the list of completed tasks
     And the user adds the task to the list of completed tasks by clicking the checkbox
 
+  @B38G3-484_tasks_AC03-TC02
+  Scenario: User can remove any task from the list of completed tasks
+    And the user adds the task to the list of completed tasks by clicking the checkbox
+    Then the user removes the task from the completed tasks by clicking the checkbox of a completed task
+
+
   @B38G3-484_tasks_AC04-TC01
 
   Scenario: User can add any task to the list of important tasks
     And the user adds the task to the list of important tasks by clicking the star icon
 
+  @B38G3-484_tasks_AC04-TC02
+  Scenario: User can remove any task from the list of important tasks
+    And the user adds the task to the list of important tasks by clicking the star icon
+    And the user removes the task from the list of important tasks by clicking the star icon
+
+
   @B38G3-484_tasks_AC05-TC01
 
   Scenario:User can see the number of all uncompleted tasks
     And the user can see the number of all uncompleted tasks next to the current tab
+
+  @B38G3-484_tasks_AC05-TC02
+  Scenario:User can see the number of all completed tasks
+    And the user adds the task to the list of completed tasks by clicking the checkbox
+    And the user can see the number of completed tasks in the completed tasks tab after completing atleast one task
+
