@@ -32,6 +32,7 @@ public class TasksStepDefs {
     @Then("the user makes a new task")
     public void the_user_makes_a_new_task() {
         BrowserUtils.sleep(2);
+        tasksPage.automatedTaskTab.click();
         tasksPage.taskName.sendKeys("Automated Task" + Keys.ENTER);
     }
 

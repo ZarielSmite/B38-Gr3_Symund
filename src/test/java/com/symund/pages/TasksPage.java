@@ -11,6 +11,9 @@ public class TasksPage extends BasePage {
     @FindBy(xpath = "//input[@id='newListInput']")
     public WebElement listName;
 
+    @FindBy(xpath = "//*[@id=\"list_automated-list\"]/a/span")
+    public WebElement automatedTaskTab;
+
     @FindBy(xpath = "//input[@id='target']")
     public WebElement taskName;
 
