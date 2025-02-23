@@ -17,6 +17,9 @@ public class TasksPage extends BasePage {
     @FindBy(xpath = "(//span[@class='icon icon-sprt-bw sprt-task-star'])[1]")
     public WebElement importantStar;
 
+    @FindBy(xpath = "//*[@id=\"collection_starred\"]/div/div[1]")
+    public WebElement importantCount;
+
     @FindBy(xpath = "//label[starts-with(@for,'toggleCompleted')][1]")
     public WebElement completedCheckbox;
 

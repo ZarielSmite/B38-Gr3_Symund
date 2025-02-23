@@ -154,6 +154,14 @@ public class TasksStepDefs {
         String completedTasksCount = tasksPage.completedTabCount.getText();
         System.out.println("completedTasksCount = " + completedTasksCount);
 
+    }
+
+    @Then("the user can see the number of tasks in the important tab")
+    public void theUserCanSeeTheNumberOfTasksInTheImportantTab() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(tasksPage.importantCount));
+        String importantCount = tasksPage.importantCount.getText();
+        System.out.println("importantCount = " + importantCount);
 
     }
 }
