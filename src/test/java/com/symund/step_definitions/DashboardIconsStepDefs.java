@@ -2,9 +2,14 @@ package com.symund.step_definitions;
 
 import com.symund.pages.DashboardIconsPage;
 import com.symund.pages.FilesPage;
+import com.symund.utilities.BrowserUtils;
+import com.symund.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class DashboardIconsStepDefs {
 
@@ -19,20 +24,21 @@ public class DashboardIconsStepDefs {
 
     @Given("user types file name inside any Module")
     public void userTypesFileNameInsideAnyModule() {
-       dashboardPage.searchFile("RealAgile");
+       dashboardPage.searchFile("Talk");
 
     }
 
     @When("user clicks on that file")
     public void userClicksOnThatFile() {
-        dashboardPage.clickToResult("RealAgile");
+        dashboardPage.clickToResult("Talk");
+
 
     }
 
     @Then("verify that user can see detailed side page of file")
     public void verifyThatUserCanSeeDetailedSidePageOfFile() {
-        dashboardPage.verifyDetailedSidePageOfFile();
-
+        BrowserUtils.sleep(4);
+        dashboardPage.verifyDetailedSidePageOfFile("Talk");
     }
 
 
