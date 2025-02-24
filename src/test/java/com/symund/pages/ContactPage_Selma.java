@@ -71,9 +71,9 @@ public class ContactPage_Selma extends BasePage {
     @FindBy(xpath = "//section//div//ul//li//span[contains(text(),'Family') or contains(text(),'Friends') or contains(text(),'Work') or contains(text(),'Gym')]")
    public List<WebElement> groupElements;
 
-    // WebElement listesine erişim sağlıyoruz
+
     public List<WebElement> getGroupElements(List<String> groupNames) {
-        // Dinamik olarak grup isimlerini içeren XPath kullanmak için
+
         StringBuilder xpathBuilder = new StringBuilder("//section//div//ul//li//span[");
         for (int i = 0; i < groupNames.size(); i++) {
             if (i > 0) xpathBuilder.append(" or ");
@@ -81,7 +81,7 @@ public class ContactPage_Selma extends BasePage {
         }
         xpathBuilder.append("]");
 
-        // Dinamik XPath ile WebElement listesine erişim sağlıyoruz
+
         return Driver.getDriver().findElements(By.xpath(xpathBuilder.toString()));
     }
 
