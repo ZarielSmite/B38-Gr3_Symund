@@ -5,9 +5,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.time.Duration;
+
+
+
 
 public class DashboardIconsPage extends BasePage {
     @FindBy(xpath = "//span[@aria-label='Magnify icon']")
@@ -31,15 +32,23 @@ public class DashboardIconsPage extends BasePage {
     public void clickToResult(String fileName) {
         WebElement fileLink =
                 Driver.getDriver().findElement
-                        (By.xpath("//*[contains(@title, '" + fileName + "')]"));
+                        (By.xpath("//h3[contains(@title, '" + fileName + "')]"));
         fileLink.click();
+
+
+
 
     }
 
     // method to verify that user can see detailed side page of what they searched
-    public void verifyDetailedSidePageOfFile() {
+    public void verifyDetailedSidePageOfFile(String fileName) {
+        WebElement header =
+                Driver.getDriver().findElement(By.xpath("//h2[contains(text(), '"+fileName+"')]"));
+        String headerText = header.getText();
 
-    }
+        Assert.assertTrue(headerText.contains(fileName));
+}
+
 
 
 
