@@ -18,7 +18,9 @@
     Background: User logins
       Given the user is on the login page
       And the user logged in with username as "Employee93" and password as "Employee123"
-     # Given the user navigates to "Magnify Icon" module
+      And the user navigates to "Files" module
+      Then user should navigate to "Magnify Btn" btn
+
 
     @B38G3-479_SearchFunctionality_AC01-TC01
     Scenario: verifying search functionality
