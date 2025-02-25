@@ -14,6 +14,7 @@ Acceptance Criteria:
     And the user logged in with username as "Employee73" and password as "Employee123"
     And the user navigates to "Contacts" module
 
+
   @B38G3-478_contactGroup_AC01_TC01
   Scenario: User creates a new contact group
     Given The user clicks on the + New group button
