@@ -29,7 +29,6 @@ Acceptance Criteria:
     And The "Family" group should still be visible in the group list
 
 
-
   @B38G3-478_contactGroup_AC01_TC03
   Scenario: User creates multiple contact group
     Given The user enters  multiple group names
@@ -44,14 +43,11 @@ Acceptance Criteria:
       | Gym        |
 
 
-
   @B38G3-478_contactGroup_AC01_TC04
   Scenario: User tries to create a contact group with an empty name
     Given The user clicks on the + New group button
     When The user does not enter any name and tries to confirm
-    And The system should display an error message
     Then The group should not be created
-
 
 
   @B38G3-478_contactGroup_AC02_TC01

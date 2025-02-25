@@ -45,6 +45,8 @@ public class ContactPage_Selma extends BasePage {
     public List<WebElement> groupList1;
 
 
+    @FindBy(xpath = "//a[@aria-current='page']")
+    public WebElement emptyGroup;
 
 
     @FindBy(css = "div.multiselect__select")

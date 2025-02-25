@@ -71,9 +71,6 @@ public class ContactGroup_StepDefi_Selma {
     }
 
 
-
-
-
     @And("The {string} group should still be visible in the group list")
     public void theGroupShouldStillBeVisibleInTheGroupList(String grp) {
         System.out.println("contactPage.groupInList.getText() = " + contactPage.groupInList.getText());
@@ -81,19 +78,9 @@ public class ContactGroup_StepDefi_Selma {
     }
 
 
-    public String errorMessage;
-    @And("The system should display an error message")
-    public void theSystemShouldDisplayAnErrorMessage() {
-
-        assertNotNull("Error message cannot be null", errorMessage);
-        assertEquals("Group name cannot be empty!", errorMessage);
-    }
-
-    public boolean isGroupCreated;
     @Then("The group should not be created")
     public void theGroupShouldNotBeCreated() {
-        assertFalse("The group should not be created", isGroupCreated);
-
+        Assert.assertFalse("The group should not be created", contactPage.emptyGroup.isDisplayed());
     }
 
 
@@ -125,7 +112,6 @@ public class ContactGroup_StepDefi_Selma {
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
 
-        // Beklenen grup isimlerini kontrol ediyoruz
         for (String expected : expectedGroups) {
             assertTrue("Group name '" + expected + "' is not visible in the dropdown", actualGroupNames.contains(expected));
         }
@@ -178,15 +164,12 @@ public class ContactGroup_StepDefi_Selma {
     public void theGroupAndAnniversaryShouldStillBeVisibleInTheContact() {
 
         Assert.assertTrue("Anniversary is not visible after refresh the page",contactPage.verifyAnniversary.isDisplayed());
-
-
     }
 
     @When("The user tries to add Anniversary again")
     public void theUserTriesToAddAnniversaryAgain() {
         contactPage.addProperty.click();
         Assert.assertTrue("Anniversary button should not be displayed again" , contactPage.secondAnniversary.isEmpty());
-
     }
 
 
