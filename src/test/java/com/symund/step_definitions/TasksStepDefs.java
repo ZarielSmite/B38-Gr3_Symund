@@ -32,6 +32,7 @@ public class TasksStepDefs {
     @Then("the user makes a new task")
     public void the_user_makes_a_new_task() {
         BrowserUtils.sleep(2);
+        tasksPage.automatedTaskTab.click();
         tasksPage.taskName.sendKeys("Automated Task" + Keys.ENTER);
     }
 
@@ -154,6 +155,14 @@ public class TasksStepDefs {
         String completedTasksCount = tasksPage.completedTabCount.getText();
         System.out.println("completedTasksCount = " + completedTasksCount);
 
+    }
+
+    @Then("the user can see the number of tasks in the important tab")
+    public void theUserCanSeeTheNumberOfTasksInTheImportantTab() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(tasksPage.importantCount));
+        String importantCount = tasksPage.importantCount.getText();
+        System.out.println("importantCount = " + importantCount);
 
     }
 }
