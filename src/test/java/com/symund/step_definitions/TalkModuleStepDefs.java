@@ -76,6 +76,7 @@ public class TalkModuleStepDefs {
     public void user_clicks_delete_conversation() {
         BrowserUtils.waitFor(3);
         talkPage.scrollToDeleteConversationAndClick();
+        BrowserUtils.waitFor(3);
     }
 
     @Then("User clicks yes button")

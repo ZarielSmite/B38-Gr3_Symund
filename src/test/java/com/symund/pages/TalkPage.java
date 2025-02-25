@@ -63,23 +63,23 @@ public class TalkPage extends BasePage {
     @FindBy(xpath = "//button[contains(@class, 'icon action-item__menutoggle ')]")
     public WebElement threeDotMenu;
 
-    @FindBy(xpath = "(//span[contains(@class,'action-button__text')])[8]")
+    @FindBy(xpath = "//li//button//span[contains(text(),'Delete conversation')]")
     public WebElement deleteConversationButton;
 
     public void scrollToDeleteConversationAndClick(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         JavascriptExecutor jsExecutor =(JavascriptExecutor) driver;
 
-        actions.moveToElement(threeDotMenu).click().perform();
-        BrowserUtils.waitFor(5);
+//        actions.moveToElement(threeDotMenu).click().perform();
+//        BrowserUtils.waitFor(10);
 
-        WebElement deleteButton = wait.until(ExpectedConditions.visibilityOf(deleteConversationButton));
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", deleteButton);
+//        WebElement deleteButton = wait.until(ExpectedConditions.visibilityOf(deleteConversationButton));
+//        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", deleteConversationButton);
         actions.moveToElement(deleteConversationButton).click().perform();
-        deleteButton.click();
+//        deleteConversationButton.click();
 
     }
 
-    @FindBy(xpath = "(//button[contains(@class,'primary')])[2]")
+    @FindBy(xpath = "//div[contains(@class,'twobuttons')]/button[2]")
     public WebElement deleteAcceptanceButton;
 }
