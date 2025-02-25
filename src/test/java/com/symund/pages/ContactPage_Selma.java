@@ -86,28 +86,24 @@ public class ContactPage_Selma extends BasePage {
     }
 
 
-
-
-
-    // Sayfanın tamamen yüklenmesini bekle
     public void waitForPageToLoad() {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10))
                 .until(webDriver -> ((JavascriptExecutor) webDriver)
                         .executeScript("return document.readyState").equals("complete"));
     }
 
-    // Dropdown menüsünü aç
+
     public void openDropdown() {
         waitForPageToLoad();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
         WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(dropdownButton));
 
-        // Actions kullanarak dropdown'a tıklama
+
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(dropdown).click().perform();
     }
 
-    // Grup ismini bul ve döndür (contains kullanarak)
+
     public WebElement getGroupElement(String groupName) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
         List<WebElement> groups = wait.until(ExpectedConditions.visibilityOfAllElements(groupList));
@@ -118,7 +114,7 @@ public class ContactPage_Selma extends BasePage {
             }
 
         }
-        return null; // Eğer grup bulunamazsa null döndür
+        return null;
     }
 
 }
