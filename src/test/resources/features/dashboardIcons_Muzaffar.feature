@@ -27,3 +27,8 @@
       Given user types file name inside any Module
       When user clicks on that file
       Then verify that user can see detailed side page of file
+
+    @B38G3-479_SearchFunctionality_AC02-TC01
+    Scenario: App icon functionality
+      When user presses App icon btn
+      Then verify that User can navigate to the Dashboard page

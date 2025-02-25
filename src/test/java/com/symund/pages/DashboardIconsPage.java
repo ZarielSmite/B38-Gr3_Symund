@@ -50,6 +50,9 @@ public class DashboardIconsPage extends BasePage {
 }
 
 
+     @FindBy (xpath = "//div[@class='logo logo-icon']")
+    public WebElement logoIcon;
+
 
 
 }
