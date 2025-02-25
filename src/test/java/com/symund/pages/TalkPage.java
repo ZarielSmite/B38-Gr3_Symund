@@ -5,6 +5,7 @@ import com.symund.utilities.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v118.dom.DOM;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -26,7 +27,6 @@ public class TalkPage extends BasePage {
         this.actions = new Actions(driver);
         PageFactory.initElements(Driver.getDriver(), this);
     }
-
 
     @FindBy(xpath = "//*[@id=\"appmenu\"]/li[5]/a/span")
     public WebElement moduleName;
@@ -63,11 +63,11 @@ public class TalkPage extends BasePage {
     @FindBy(xpath = "//button[contains(@class, 'icon action-item__menutoggle ')]")
     public WebElement threeDotMenu;
 
-    @FindBy(xpath = "(//span[contains(@class,'action-button__text')])[7]")
+    @FindBy(xpath = "(//span[contains(@class,'action-button__text')])[8]")
     public WebElement deleteConversationButton;
 
     public void scrollToDeleteConversationAndClick(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         JavascriptExecutor jsExecutor =(JavascriptExecutor) driver;
 
         actions.moveToElement(threeDotMenu).click().perform();
@@ -76,8 +76,8 @@ public class TalkPage extends BasePage {
         WebElement deleteButton = wait.until(ExpectedConditions.visibilityOf(deleteConversationButton));
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", deleteButton);
         actions.moveToElement(deleteConversationButton).click().perform();
-        BrowserUtils.waitFor(8);
         deleteButton.click();
+
     }
 
     @FindBy(xpath = "(//button[contains(@class,'primary')])[2]")

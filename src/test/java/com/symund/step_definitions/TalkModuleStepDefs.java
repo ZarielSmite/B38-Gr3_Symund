@@ -33,7 +33,6 @@ public class TalkModuleStepDefs {
         BrowserUtils.waitFor(2);
        // List<WebElement> nameList = talkPage.participantList;
 
-
 //        if (nameList.isEmpty()) {
 //            System.out.println("No participants found!");
 //        } else {
