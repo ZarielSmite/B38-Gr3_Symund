@@ -36,7 +36,7 @@ public class TalkModuleStepDefs {
 //        if (nameList.isEmpty()) {
 //            System.out.println("No participants found!");
 //        } else {
-        System.out.println( talkPage.getParticipantNames());
+        System.out.println(talkPage.getParticipantNames());
 //        }
     }
 
@@ -61,7 +61,6 @@ public class TalkModuleStepDefs {
         String createdConversationName = talkPage.createdConversation.getText();
         System.out.println(createdConversationName);
         System.out.println(expectedName);
-
         Assert.assertNotEquals(createdConversationName, expectedName);
     }
 
@@ -69,7 +68,6 @@ public class TalkModuleStepDefs {
     public void user_clicks_threeDots() {
         BrowserUtils.waitFor(2);
         talkPage.threeDotMenu.click();
-
     }
 
     @Then("User clicks delete conversation button")
@@ -98,7 +96,6 @@ public class TalkModuleStepDefs {
         String createdConversationName = talkPage.createdConversation.getText();
         System.out.println(createdConversationName);
         System.out.println(expectedName);
-
         Assert.assertNotEquals(createdConversationName, expectedName);
     }
 

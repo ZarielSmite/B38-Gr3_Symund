@@ -1,15 +1,12 @@
 package com.symund.pages;
 
-import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v118.dom.DOM;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -70,14 +67,7 @@ public class TalkPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         JavascriptExecutor jsExecutor =(JavascriptExecutor) driver;
 
-//        actions.moveToElement(threeDotMenu).click().perform();
-//        BrowserUtils.waitFor(10);
-
-//        WebElement deleteButton = wait.until(ExpectedConditions.visibilityOf(deleteConversationButton));
-//        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", deleteConversationButton);
         actions.moveToElement(deleteConversationButton).click().perform();
-//        deleteConversationButton.click();
-
     }
 
     @FindBy(xpath = "//div[contains(@class,'twobuttons')]/button[2]")
