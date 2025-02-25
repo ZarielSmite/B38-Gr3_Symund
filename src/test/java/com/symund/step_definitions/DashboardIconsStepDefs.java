@@ -11,6 +11,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import static com.symund.utilities.Driver.getDriver;
+
 public class DashboardIconsStepDefs {
 
     DashboardIconsPage dashboardPage = new DashboardIconsPage();
@@ -40,6 +42,25 @@ public class DashboardIconsStepDefs {
         BrowserUtils.sleep(4);
         dashboardPage.verifyDetailedSidePageOfFile("Talk");
     }
+
+
+    // ********************************New Scenari *************************************
+
+
+    @When("user presses App icon btn")
+    public void user_presses_app_icon_btn() {
+        BrowserUtils.sleep(5);
+       dashboardPage.logoIcon.click();
+
+    }
+    @Then("verify that User can navigate to the Dashboard page")
+    public void verify_that_user_can_navigate_to_the_dashboard_page() {
+      BrowserUtils.sleep(2);
+
+      BrowserUtils.verifyTitle("Dashboard - Symund - QA");
+
+    }
+
 
 
 }
