@@ -28,7 +28,7 @@ public class ContactPage_Selma extends BasePage {
     public WebElement groupInList;
 
     public List<WebElement> getGroupListElements() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10)); // Max 10 saniye bekler
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[@class='app-navigation-entry__title']")));
     }
 
