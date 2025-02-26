@@ -33,12 +33,10 @@ Feature: Users should be able to login
 
 
   @B38G3-484_tasks_AC02-TC01
-
   Scenario: User can create a new task
     Then the user makes a new task
 
   @B38G3-484_tasks_AC03-TC01
-
   Scenario: User can add any task to the list of completed tasks
     And the user adds the task to the list of completed tasks by clicking the checkbox
 
@@ -47,20 +45,21 @@ Feature: Users should be able to login
     And the user adds the task to the list of completed tasks by clicking the checkbox
     Then the user removes the task from the completed tasks by clicking the checkbox of a completed task
 
-
   @B38G3-484_tasks_AC04-TC01
-
   Scenario: User can add any task to the list of important tasks
     And the user adds the task to the list of important tasks by clicking the star icon
 
   @B38G3-484_tasks_AC04-TC02
+  Scenario: User can see the count of important tasks next to the important tab
+    And the user adds the task to the list of important tasks by clicking the star icon
+    Then the user can see the number of tasks in the important tab
+
+  @B38G3-484_tasks_AC04-TC03
   Scenario: User can remove any task from the list of important tasks
     And the user adds the task to the list of important tasks by clicking the star icon
     And the user removes the task from the list of important tasks by clicking the star icon
 
-
   @B38G3-484_tasks_AC05-TC01
-
   Scenario:User can see the number of all uncompleted tasks
     And the user can see the number of all uncompleted tasks next to the current tab
 
