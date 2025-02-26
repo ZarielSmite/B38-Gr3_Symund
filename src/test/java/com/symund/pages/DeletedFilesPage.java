@@ -22,8 +22,6 @@ public class DeletedFilesPage extends BasePage {
         this.driver = Driver.getDriver();
         this.actions = new Actions(driver);
         PageFactory.initElements(Driver.getDriver(), this);
-
-
     }
     public void DeletedFileSet() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

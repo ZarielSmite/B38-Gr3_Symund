@@ -35,7 +35,6 @@ public class DeletedFileStepDef {
 
         BrowserUtils.waitFor(10);
         deletedFilesPage.orderDeletedFiles.click();
-
     }
 
     @Then("verify user should see deleted files by newest to oldest")
