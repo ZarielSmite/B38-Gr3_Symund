@@ -23,6 +23,7 @@ public class DeletedFileStepDef {
 
     @Given("the user is on the  Files page")
     public void theUserIsOnTheFilesPage() {
+
     }
 
     @When("user navigates to Deleted Files module")
@@ -30,12 +31,12 @@ public class DeletedFileStepDef {
         deletedFilesPage.DeletedFileSet();
     }
 
+
     @Then("user clicks on the arrow sign to order the all deleted files by newest to oldest")
     public void userClicksOnTheUpperArrowSigntoOrderTheAllDeletedFilesByNewestToOldest() {
 
         BrowserUtils.waitFor(10);
         deletedFilesPage.orderDeletedFiles.click();
-
     }
 
     @Then("verify user should see deleted files by newest to oldest")
