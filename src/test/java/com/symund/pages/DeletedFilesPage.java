@@ -16,6 +16,7 @@ import java.util.List;
 
 
 public class DeletedFilesPage extends BasePage {
+
     WebDriver driver;
     Actions actions;
     public DeletedFilesPage() {

@@ -23,6 +23,7 @@ public class DeletedFileStepDef {
 
     @Given("the user is on the  Files page")
     public void theUserIsOnTheFilesPage() {
+
     }
 
     @When("user navigates to Deleted Files module")
