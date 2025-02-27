@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class CalendarStepDefs {
@@ -20,7 +21,6 @@ public class CalendarStepDefs {
 
     @When("User select the {string} view option")
     public void user_select_the_view_option(String calendarView) {
-
         calendarPage.calendarViewMenu.click();
         if (!calendarPage.getCalendarView(calendarView).isSelected()) {
             calendarPage.getCalendarView(calendarView).click();
@@ -29,25 +29,47 @@ public class CalendarStepDefs {
 
     @Then("User should see the {string} calendar view")
     public void userShouldSeeTheCalendarView(String calendarView) {
-
-       BrowserUtils.verifyURLContains(calendarView);
+        BrowserUtils.verifyURLContains(calendarView);
     }
 
 
     @When("User create a new event with title {string} on {string}")
     public void user_create_a_new_event_with_title_on(String meeting, String meetingDate) {
+        calendarPage.newEventButton.click();
+        calendarPage.eventTitleInput.sendKeys(meeting + Keys.TAB);
+
+        calendarPage.fromDateInput.clear();
+        calendarPage.fromDateInput.sendKeys(meetingDate + Keys.TAB);
+
+        calendarPage.toDateInput.clear();
+        calendarPage.toDateInput.sendKeys(meetingDate);
+        calendarPage.newEventSaveButton.click();
 
     }
 
     @When("User switch to the {string} calendar view")
-    public void user_switch_to_the_calendar_view(String string) {
+    public void user_switch_to_the_calendar_view(String calendarView){
+        calendarPage.calendarViewMenu.click();
+        if (!calendarPage.getCalendarView(calendarView).isSelected()) {
+            calendarPage.getCalendarView(calendarView).click();
+        }
     }
 
-    @Then("User should see the event {string} on {string}")
+   /* @Then("User should see the event {string} on {string}")
     public void user_should_see_the_event_on(String string, String string2) {
+
+    }*/
+
+
+    @Then("User should see the event {string} on Monthly calendar view")
+    public void userShouldSeeTheEventOnMonthlyCalendarView(String meeting) throws InterruptedException {
+        Thread.sleep(2000);
+
+           BrowserUtils.verifyElementDisplayed(calendarPage.personalRadioButton);
+
+
+
     }
-
-
 }
 
 

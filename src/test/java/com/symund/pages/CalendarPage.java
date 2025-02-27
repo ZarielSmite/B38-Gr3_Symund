@@ -43,9 +43,15 @@ public class CalendarPage extends BasePage {
     @FindBy(xpath = "//input[@placeholder='Event title']")
     public WebElement eventTitleInput;
 
-    @FindBy(xpath = "(//input[@name='date'])[1]")
+    @FindBy(xpath = "(//div[@class='property-title-time-picker__time-pickers']//input[@name='date'])[1]")
     public WebElement fromDateInput;
+
     @FindBy(xpath = "(//input[@name='date'])[3]")
     public WebElement toDateInput;
 
+    @FindBy(xpath = "(//div[@class='event-popover__buttons']//button)[2]")
+    public WebElement newEventSaveButton;
+
+    @FindBy(xpath = "//div[@style='background-color: rgb(121, 90, 171);']")
+    public WebElement personalRadioButton;
 }
