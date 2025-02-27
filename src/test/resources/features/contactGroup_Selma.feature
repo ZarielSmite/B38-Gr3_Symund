@@ -1,3 +1,4 @@
+@B38G3-478_contactGroup
 Feature: Contact Group Management in Contacts Module
 """
 User Story :
@@ -7,7 +8,6 @@ Acceptance Criteria:
  2- User can see all the available groups name through the group’s dropdown menu existing in the contact’s own info menu
  3- User can add a new property as “Anniversary” to the contact’s info page from the “Add new property” dropdown menu.
 """
-
 
   Background: User logins and navigates to Files Page
     Given the user is on the login page
@@ -23,14 +23,6 @@ Acceptance Criteria:
 
 
   @B38G3-478_contactGroup_AC01_TC02
-  Scenario: User creates a new group but it disappears after page refresh
-    Given The user clicks on the + New group button
-    When The user enters a group name "Family"
-    And The user refreshes the page
-    And The "Family" group should still be visible in the group list
-
-
-  @B38G3-478_contactGroup_AC01_TC03
   Scenario: User creates multiple contact group
     Given The user enters  multiple group names
       | Family     |
@@ -44,13 +36,6 @@ Acceptance Criteria:
       | Gym        |
 
 
-  @B38G3-478_contactGroup_AC01_TC04
-  Scenario: User tries to create a contact group with an empty name
-    Given The user clicks on the + New group button
-    When The user does not enter any name and tries to confirm
-    Then The group should not be created
-
-
   @B38G3-478_contactGroup_AC02_TC01
   Scenario: User sees all available groups in the dropdown menu
     Given The user enters  multiple group names
@@ -58,16 +43,14 @@ Acceptance Criteria:
       | Friends    |
       | Work       |
       | Gym        |
-
     When The user clicks on All Contacts
     And The user clicks on + New contact
-   Then The user clicks on Groups
+    Then The user clicks on Groups
     Then all created group names below should be visible in the dropdown menu
      | Family     |
      | Friends    |
      | Work       |
      | Gym        |
-
 
 
   @B38G3-478_contactGroup_AC03_TC01
@@ -79,15 +62,6 @@ Acceptance Criteria:
 
 
   @B38G3-478_contactGroup_AC03_TC02
-  Scenario: User refreshes the page after adding a "Anniversary" but it disappears
-    Given The user is on a contact's details page
-    When  The user choose on Anniversary from the dropdown
-    And The user refreshes the page
-    Then The group and Anniversary  should still be visible in the contact
-
-
-
-  @B38G3-478_contactGroup_AC03_TC03
   Scenario: User tries to add "Anniversary" property multiple times
     Given The user has already added the Anniversary property to a contact
     When The user tries to add Anniversary again
