@@ -25,20 +25,22 @@ public class TalkPage extends BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//*[@id=\"appmenu\"]/li[5]/a/span")
-    public WebElement moduleName;
 
     @FindBy(xpath = "//button[@class='toggle has-tooltip']")
     public WebElement plusIcon;
 
+
     @FindBy(xpath = "//input[@class='conversation-name']")
     public WebElement inputConversationName;
+
 
     @FindBy(xpath = "//button[contains(@class, 'navigation')]")
     public WebElement addParticipantButton;
 
+
      @FindBy(xpath = "//li[contains(@class, 'participant-row')]") // other locator //li[@class='participant-row isSearched']
      public List<WebElement> participantList;
+
 
      public List<String> getParticipantNames(){
          List<WebElement> nameList = participantList;
@@ -46,22 +48,29 @@ public class TalkPage extends BasePage {
 
          for (WebElement name : nameList) {
              nameListString.add(name.getText());
-           //  System.out.println(name.getText());
          }
          return nameListString;
+     }
+
+     public List<WebElement> getParticipantElements(){
+         return participantList;
      }
 
     @FindBy(xpath = "//button[contains(@class, 'primary')]")
     public WebElement createConversationButton;
 
+
     @FindBy(xpath = "(//div[contains(@class, 'line-one')])[1]")
     public WebElement createdConversation;
+
 
     @FindBy(xpath = "//button[contains(@class, 'icon action-item__menutoggle ')]")
     public WebElement threeDotMenu;
 
+
     @FindBy(xpath = "//li//button//span[contains(text(),'Delete conversation')]")
     public WebElement deleteConversationButton;
+
 
     public void scrollToDeleteConversationAndClick(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -69,6 +78,7 @@ public class TalkPage extends BasePage {
 
         actions.moveToElement(deleteConversationButton).click().perform();
     }
+
 
     @FindBy(xpath = "//div[contains(@class,'twobuttons')]/button[2]")
     public WebElement deleteAcceptanceButton;
