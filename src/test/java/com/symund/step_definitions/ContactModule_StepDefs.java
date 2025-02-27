@@ -5,8 +5,8 @@ import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.sl.In;
-import org.apache.velocity.runtime.directive.Parse;
+
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -51,7 +51,7 @@ public class ContactModule_StepDefs {
 
     @Given("user clicks to All contacts to see contacts list")
     public void user_clicks_to_all_contacts_to_see_contacts_list(List<String> expectedNames) {
-
+       contactsModule.allContactsBtn.click();
 
         List<String> actualContactNames = contactsModule.allContacts.stream()
                 .map(WebElement::getText)
