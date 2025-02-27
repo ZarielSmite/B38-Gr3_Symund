@@ -5,9 +5,13 @@ import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.sl.In;
+import org.apache.velocity.runtime.directive.Parse;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class ContactModule_StepDefs {
 
@@ -28,11 +32,14 @@ public class ContactModule_StepDefs {
     public void user_puts_last_name_of_contact_on_title_icon(String lastName ) {
          contactsModule.titleIcon.sendKeys(lastName);
 
+
     }
 
     @Then("verify that new contact appears in the All contacts list with matching initials {string}")
     public void verifyThatNewContactAppearsInTheAllContactsListWithMatchingInitials(String matchingInitials) {
-     String initialsOfContact = Driver.getDriver().findElement
+     BrowserUtils.sleep(3);
+
+      String initialsOfContact = Driver.getDriver().findElement
              (By.xpath("//div[@class='app-content-list-item-line-one']")).getText();
 
         //System.out.println("initialsOfContact = " + initialsOfContact);
@@ -40,43 +47,29 @@ public class ContactModule_StepDefs {
     }
 
 
-    // ****************** New Scenario AC01_TC02****************************
-    @Given("user deletes name and last name of a created contact")
-    public void user_deletes_name_and_last_name_of_a_created_contact() {
-        contactsModule.oldContact.click();
-        contactsModule.companyIcon.clear();
-        contactsModule.titleIcon.clear();
+     //****************     //****************  New Scenario AC02_TC01    //****************     //****************
 
-    }
-    @Given("user puts a new name {string} and surname {string}")
-    public void user_puts_a_new_name_and_surname(String name, String surname) {
-          contactsModule.companyIcon.sendKeys(name);
-          contactsModule.titleIcon.sendKeys(surname);
-        BrowserUtils.sleep(3);
+    @Given("user clicks to All contacts to see contacts list")
+    public void user_clicks_to_all_contacts_to_see_contacts_list(List<String> expectedNames) {
 
-    }
-    @Then("verify that matching initials {string} are also changed simultaneously")
-    public void verify_that_matching_initials_are_also_changed_simultaneously(String expectedInitials) {
-            String actualInitials = contactsModule.oldContact.getText();
-            Assert.assertEquals(expectedInitials,actualInitials);
+
+        List<String> actualContactNames = contactsModule.allContacts.stream()
+                .map(WebElement::getText)
+                .toList();
+        System.out.println("contactNames = " + actualContactNames);
+
+        Assert.assertEquals(expectedNames,actualContactNames);
 
     }
 
-    // ***************New Scenario AC01_TC03 **************
+    @Then("verify that total number of contacts are correct as it is  shown")
+    public void verifyThatTotalNumberOfContactsAreCorrectAsItIsShown() {
+        int expectedNumber  = contactsModule.allContacts.size();
 
-    @Then("refresh the web page")
-    public void refresh_the_web_page() {
-       Driver.getDriver().navigate().refresh();
+        String text = contactsModule.contactsNumber.getText();
+        int actualNumber = Integer.parseInt(text);
 
-    }
-    @Then("verify that new contact is disappeared, not created")
-    public void verify_that_new_contact_is_disappeared_not_created() {
-        WebElement newContact = Driver.getDriver().findElement
-                (By.xpath("//div[@class='app-content-list-item active']"));
-
-        Assert.assertTrue(newContact.isDisplayed());
+        Assert.assertEquals(expectedNumber,actualNumber);
 
     }
-
-
 }
