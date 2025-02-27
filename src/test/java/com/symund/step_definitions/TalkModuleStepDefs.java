@@ -71,7 +71,7 @@ public class TalkModuleStepDefs {
         System.out.println(expectedName);
         System.out.println(createdConversationName);
 
-        Assert.assertNotEquals(createdConversationName, expectedName);
+        Assert.assertEquals(createdConversationName, expectedName);
     }
 
        @Then("User clicks three dots")
