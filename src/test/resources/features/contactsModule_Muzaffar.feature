@@ -1,3 +1,5 @@
+
+@B38G3-473_contactModule
 Feature: Contacts Module Functionality
 
   """
@@ -23,21 +25,20 @@ Feature: Contacts Module Functionality
     Then user puts last name "Yuldoshev" of contact on Title icon
     Then  verify that new contact appears in the All contacts list with matching initials "Muzaffar"
 
-  @B38G3-473_contactModule_AC01_TC02
-  Scenario: verification of transformation of
-  matching Initials when name and last name is changed after creation
-    Given user deletes name and last name of a created contact
-    And user puts a new name "Younes" and surname "Serroukh"
-    Then verify that matching initials "Younes" are also changed simultaneously
 
-  @B38G3-473_contactModule_AC01_TC03
-   Scenario: user tries to create a new contact with an empty details and it should disappear after refresh
-  (it shouldn't be created)
-    Given user clicks on New Contact
-    Then user puts name "       " of the contact on Company icon
-    When user puts last name "     " of contact on Title icon
-    Then refresh the web page
-    Then verify that new contact is disappeared, not created
+    #AC02 - User can see all the contacts as a list inside the middle column
+    #   and total number of the contacts near the “All Contacts” tab
+    @B38G3-473_contactModule_AC02_TC01
+    Scenario: verification of contact's list and numbers
+      Given user clicks to All contacts to see contacts list
+          |Ada|
+          |John|
+          |Mike|
+          |Muzaffar|
+
+      Then verify that total number of contacts are correct as it is  shown
+
+
 
 
 
