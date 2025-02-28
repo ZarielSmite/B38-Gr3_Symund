@@ -68,7 +68,7 @@ public class CalendarPage extends BasePage {
     @FindBy(xpath = "//div[@class='fc-event-main']//div[text()='Meeting']")
     public WebElement theChosenEvent;
 
-// custom method that takes date in a numeric format and returns it a alphanumeric format to match the Date Format on the monthly calendar webpage
+// custom method that takes date in a numeric format and returns it in a alphanumeric format to match the Date Format on the monthly calendar webpage
     public String newFormatDate(String theDate) {
         String month = theDate.substring(theDate.indexOf("-") + 1, theDate.lastIndexOf("-"));
         String year = theDate.substring(theDate.lastIndexOf("-")+1);
