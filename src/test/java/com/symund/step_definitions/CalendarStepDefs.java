@@ -2,13 +2,11 @@ package com.symund.step_definitions;
 
 import com.symund.pages.CalendarPage;
 import com.symund.utilities.BrowserUtils;
-import com.symund.utilities.Driver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+
 
 public class CalendarStepDefs {
 
@@ -41,32 +39,39 @@ public class CalendarStepDefs {
         calendarPage.fromDateInput.clear();
         calendarPage.fromDateInput.sendKeys(meetingDate + Keys.TAB);
 
+
         calendarPage.toDateInput.clear();
         calendarPage.toDateInput.sendKeys(meetingDate);
         calendarPage.newEventSaveButton.click();
 
+
     }
 
     @When("User switch to the {string} calendar view")
-    public void user_switch_to_the_calendar_view(String calendarView){
+    public void user_switch_to_the_calendar_view(String calendarView) {
         calendarPage.calendarViewMenu.click();
         if (!calendarPage.getCalendarView(calendarView).isSelected()) {
             calendarPage.getCalendarView(calendarView).click();
         }
     }
 
-   /* @Then("User should see the event {string} on {string}")
-    public void user_should_see_the_event_on(String string, String string2) {
+//NOT HAPPY WITH ALL MY CODE BELOW
 
-    }*/
+    @Then("User should see the event {string} on {string}")
+    public void userShouldSeeTheEventOn(String meeting, String meetingDate) {
 
+        if (!calendarPage.getAttributeIdea.getAttribute("class").equals("app-navigation-entry__icon-bullet")) {
+            calendarPage.personalRadioButton.click();
+        }
 
-    @Then("User should see the event {string} on Monthly calendar view")
-    public void userShouldSeeTheEventOnMonthlyCalendarView(String meeting) throws InterruptedException {
-        Thread.sleep(2000);
+        for (int i = 1; i < 12; i++) {
+            if (calendarPage.datePickerButton.getText().equals(calendarPage.newFormatDate(meetingDate))) {
+                break;
+            }
+            calendarPage.datePickerRightButton.click();
+        }
 
-           BrowserUtils.verifyElementDisplayed(calendarPage.personalRadioButton);
-
+        BrowserUtils.verifyElementDisplayed(calendarPage.theChosenEvent);
 
 
     }

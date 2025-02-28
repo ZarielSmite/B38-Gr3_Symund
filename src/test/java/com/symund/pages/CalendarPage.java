@@ -52,6 +52,71 @@ public class CalendarPage extends BasePage {
     @FindBy(xpath = "(//div[@class='event-popover__buttons']//button)[2]")
     public WebElement newEventSaveButton;
 
-    @FindBy(xpath = "//div[@style='background-color: rgb(121, 90, 171);']")
+    @FindBy(xpath = "//*[@id=\"app-navigation-vue\"]/ul/div/li/a/div/div/div")
     public WebElement personalRadioButton;
+
+
+    @FindBy(xpath = "//*[@id=\"app-navigation-vue\"]/ul/div/li/a/div/div")
+    public WebElement getAttributeIdea;
+
+    @FindBy(xpath = "//button[@class='datepicker-button-section__datepicker-label button datepicker-label']")
+    public WebElement datePickerButton;
+
+    @FindBy(xpath = "//*[@id=\"app-navigation-vue\"]/header/div[1]/button[3]")
+    public WebElement datePickerRightButton;
+
+    @FindBy(xpath = "//*[@id=\"app-content-vue\"]/div/div/div/table/tbody/tr/td/div/div/div/table/tbody/tr[2]/td[2]/div/div[2]/div[1]/a/div[1]/div/div/div")
+    public WebElement theChosenEvent;
+
+
+    public String newFormatDate(String theDate) {
+        String month = theDate.substring(theDate.indexOf("-") + 1, theDate.lastIndexOf("-"));
+        String year = theDate.substring(theDate.lastIndexOf("-")+1);
+        String theNewDate;
+        switch (month) {
+            case "01":
+                theNewDate = "January " + year;
+                break;
+            case "02":
+                theNewDate = "February " + year;
+                break;
+            case "03":
+                theNewDate = "March " + year;
+                break;
+            case "04":
+                theNewDate = "April " + year;
+                break;
+            case "05":
+                theNewDate = "May " + year;
+                break;
+            case "06":
+                theNewDate = "June " + year;
+                break;
+            case "07":
+                theNewDate = "July " + year;
+                break;
+            case "08":
+                theNewDate = "August " + year;
+                break;
+            case "09":
+                theNewDate = "September " + year;
+                break;
+            case "10":
+                theNewDate = "October " + year;
+                break;
+            case "11":
+                theNewDate = "November " + year;
+                break;
+            case "12":
+                theNewDate = "December " + year;
+                break;
+            default:
+                theNewDate = "Invalid month";
+        }
+
+
+        return theNewDate;
+    }
+
+
 }
