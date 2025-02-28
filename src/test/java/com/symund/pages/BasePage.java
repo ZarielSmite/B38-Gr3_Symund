@@ -25,6 +25,23 @@ public abstract class BasePage {
         element.click();
     }
 
+    /**
+     * This method performs the logout operation.
+     * It first clicks on the profile button to open the dropdown menu,
+     * then clicks on the logout button to log out of the application.
+     */
+    public void setLogOut(){
+        profileButton.click();
+        logOutButton.click();
+    }
+
+    @FindBy(xpath = "//div//img[@height='32']")
+    public WebElement profileButton;
+
+    @FindBy(xpath = "//header//div[2]//nav//ul//li[4][contains(id,logout)]//a")
+    public WebElement logOutButton;
+
+
 
     @FindBy(xpath ="//div[@id='settings']/nav/ul/li[4]")
     public WebElement logOutLink;
