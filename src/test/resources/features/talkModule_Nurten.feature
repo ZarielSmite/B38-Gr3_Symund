@@ -20,6 +20,7 @@ Feature: Talk Module Functionality
       Then User types new group conversation "Test1"
       And User clicks add participants button
       Then User chooses any of the contacts in the contacts list
+      Then User clicks the contacts in the contacts list
       Then User click on create conversation button
       Then Verify user should see group conversation "Test1" is displayed
 
@@ -34,15 +35,16 @@ Feature: Talk Module Functionality
   @B38G3-476_talkModule_AC02-TC1
     Scenario: Verify User can delete a conversation
       When User clicks + icon
-      Then User types new group conversation "Test4"
+      Then User types new group conversation "Test3"
       And User clicks add participants button
       Then User chooses any of the contacts in the contacts list
+      Then User clicks the contacts in the contacts list
       Then User click on create conversation button
-      Then Verify user should see group conversation "Test4" is displayed
+      Then Verify user should see group conversation "Test3" is displayed
       Then User clicks three dots
       Then User clicks delete conversation button
       Then User clicks yes button
-      Then Verify user cannot see deleted conversation "Test4" anymore
+      Then Verify user cannot see deleted conversation "Test3" anymore
 
 
 

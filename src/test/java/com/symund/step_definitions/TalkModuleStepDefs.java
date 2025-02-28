@@ -5,6 +5,9 @@ import com.symund.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class TalkModuleStepDefs {
 
@@ -15,11 +18,11 @@ public class TalkModuleStepDefs {
         BrowserUtils.waitFor(4);
         talkPage.plusIcon.click();
     }
+
     @Then("User types new group conversation {string}")
     public void userTypesNewGroupConversation(String conversationName) {
         BrowserUtils.waitFor(2);
         talkPage.inputConversationName.sendKeys(conversationName);
-
     }
     
     @Then("User clicks add participants button")
@@ -31,14 +34,19 @@ public class TalkModuleStepDefs {
     @Then("User chooses any of the contacts in the contacts list")
     public void user_chooses_any_of_the_contacts_in_the_contacts_list() {
         BrowserUtils.waitFor(2);
-       // List<WebElement> nameList = talkPage.participantList;
-
-//        if (nameList.isEmpty()) {
-//            System.out.println("No participants found!");
-//        } else {
         System.out.println(talkPage.getParticipantNames());
-//        }
     }
+
+    @Then("User clicks the contacts in the contacts list")
+    public void userClicksTheContactsInTheContactsList() {
+        List<WebElement> participantElements = talkPage.getParticipantElements();
+
+        for (WebElement participant : participantElements) {
+            System.out.println("Clicking on: " + participant.getText());
+            participant.click();
+        }
+    }
+
 
     @Then("User click on create conversation button")
     public void user_click_on_create_conversation_button() {
@@ -58,10 +66,12 @@ public class TalkModuleStepDefs {
 
     @Then("Verify user should not see group conversation {string} is displayed")
     public void verifyUserShouldNotSeeGroupConversationIsDisplayed(String expectedName) {
+        BrowserUtils.waitFor(4);
         String createdConversationName = talkPage.createdConversation.getText();
-        System.out.println(createdConversationName);
         System.out.println(expectedName);
-        Assert.assertNotEquals(createdConversationName, expectedName);
+        System.out.println(createdConversationName);
+
+        Assert.assertEquals(createdConversationName, expectedName);
     }
 
        @Then("User clicks three dots")
@@ -96,8 +106,10 @@ public class TalkModuleStepDefs {
         String createdConversationName = talkPage.createdConversation.getText();
         System.out.println(createdConversationName);
         System.out.println(expectedName);
+
         Assert.assertNotEquals(createdConversationName, expectedName);
     }
+
 
 
 }
