@@ -1,6 +1,13 @@
 @B38G3-475_calendar
 Feature: Calendar Module
-  As a user, I should be able to see Daily-Weekly-Monthly calendar view
+
+#User Story :As a user, I should be able to see Daily-Weekly-Monthly calendar view and create a new event under the Calendar module
+#Acceptance Criteria:
+#User can display daily calendar view
+#User can display weekly calendar view
+#User can display monthly calendar view
+#User can create a new event under the Calendar module and see it on the related day through the Monthly Calendar view
+
 
   Background: User logins and navigates to Files Page
     Given the user is on the login page

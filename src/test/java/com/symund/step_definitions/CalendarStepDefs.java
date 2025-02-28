@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.*;
 
 
-public class CalendarStepDefs {
+public class  CalendarStepDefs {
 
     CalendarPage calendarPage = new CalendarPage();
 
