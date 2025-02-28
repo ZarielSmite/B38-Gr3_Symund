@@ -25,5 +25,5 @@ Feature: Calendar Module
   @B38G3-475_calendar_AC04-TC01
   Scenario: User can create a new event and verify in monthly view
     When User create a new event with title "Meeting" on "03-03-2025"
-    And User switch to the "Monthly" calendar view
-    Then User should see the event "Meeting" on "03-03-2025"
+    When User select the "Monthly" view option
+    Then User should see the event Meeting on "03-03-2025"

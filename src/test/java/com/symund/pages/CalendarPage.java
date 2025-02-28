@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CalendarPage extends BasePage {
 
-
+// custom method that will return a WebElement based on the given keyword
     public WebElement getCalendarView(String calendarView) {
         WebElement calendar = null;
         switch (calendarView) {
@@ -65,10 +65,10 @@ public class CalendarPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"app-navigation-vue\"]/header/div[1]/button[3]")
     public WebElement datePickerRightButton;
 
-    @FindBy(xpath = "//*[@id=\"app-content-vue\"]/div/div/div/table/tbody/tr/td/div/div/div/table/tbody/tr[2]/td[2]/div/div[2]/div[1]/a/div[1]/div/div/div")
+    @FindBy(xpath = "//div[@class='fc-event-main']//div[text()='Meeting']")
     public WebElement theChosenEvent;
 
-
+// custom method that takes date in a numeric format and returns it a alphanumeric format to match the Date Format on the monthly calendar webpage
     public String newFormatDate(String theDate) {
         String month = theDate.substring(theDate.indexOf("-") + 1, theDate.lastIndexOf("-"));
         String year = theDate.substring(theDate.lastIndexOf("-")+1);
