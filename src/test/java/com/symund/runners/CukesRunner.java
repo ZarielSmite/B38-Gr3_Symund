@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/symund/step_definitions",
         dryRun = false,
-        tags = "@B38G3-478_contactGroup_AC01_TC01",
+        tags = "@B38G3-475_calendar",
         publish = true //generating a report with public link
 )
 public class CukesRunner {}
